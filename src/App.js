@@ -1,24 +1,45 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Button } from './component/Button';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+
+   <div className='App'>
+
+   <div className="wrapper">
+
+<div className="Calculator">
+
+    <div className=" display">0.0</div>
+    <div className=" btn btn-ac">AC</div>
+    <div className=" btn btn-c">C</div>
+    <div className=" btn btn-per">%</div>
+    <div className=" btn btn-divide">/</div>
+    <div className=" btn btn-7">7</div>
+    <div className=" btn btn-8">8</div>
+    <div className=" btn btn-9">9</div>
+    <div className=" btn btn-x">*</div>
+    <div className=" btn btn-4">4</div>
+    <div className=" btn btn-5">5</div>
+    <div className=" btn btn-6">6</div>
+    <div className=" btn btn-minus">-</div>
+    <div className=" btn btn-1">1</div>
+    <div className=" btn btn-2">2</div>
+    <div className=" btn btn-3">3</div>
+    <div className=" btn btn-plus">+</div>
+    <div className=" btn btn-0">0</div>
+    <div className=" btn btn-dot">.</div>
+    <div className=" btn btn-equal">=</div>
+    <Button/>
+</div>
+
+</div>
+
+   </div>
+   
+   </>
   );
 }
 
