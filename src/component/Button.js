@@ -11,7 +11,7 @@ export const Button = (props) =>{
     return(
        <>
 
-       <div className={`btn ${btnClass}`} onClick={(e)=>handelOnClick(e)}>{label}</div>
+       <div className={`btn ${btnClass}`} onClick={()=>handelOnClick(label)}>{label}</div>
 
    
    
