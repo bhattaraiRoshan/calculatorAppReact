@@ -3,41 +3,59 @@ import './App.css';
 import { Button } from './component/Button';
 
 function App() {
+
+  const buttons = [
+
+    {buttonClass: 'btn-ac', label: 'AC'},
+    {buttonClass: 'btn-c', label: 'C'},
+    {buttonClass: 'btn-per', label: '%'},
+    {buttonClass: 'btn-divide', label: '/'},
+    {buttonClass: 'btn-7', label: '7'},
+    {buttonClass: 'btn-8', label: '8'},
+    {buttonClass: 'btn-9', label: '9'},
+    {buttonClass: 'btn-X', label: '*'},
+    {buttonClass: 'btn-4', label: '4'},
+    {buttonClass: 'btn-5', label: '5'},
+    {buttonClass: 'btn-6', label: '6'},
+    {buttonClass: 'btn-minus', label: '-'},
+    {buttonClass: 'btn-1', label: '1'},
+    {buttonClass: 'btn-2', label: '2'},
+    {buttonClass: 'btn-3', label: '3'},
+    {buttonClass: 'btn-plus', label: '+'},
+    {buttonClass: 'btn-0', label: '0'},
+    {buttonClass: 'btn-dot', label: '.'},
+    {buttonClass: 'btn-equal', label: '='},
+  ]
+
+  const handelOnClick = (e) =>{
+    console.log(e.target.textContent);
+  }
+
   return (
    <>
 
    <div className='App'>
 
-   <div className="wrapper">
+     <div className="wrapper">
 
-<div className="Calculator">
+        <div className="Calculator">
+         <div className=" display">0.0</div>
 
-    <div className=" display">0.0</div>
-    <div className=" btn btn-ac">AC</div>
-    <div className=" btn btn-c">C</div>
-    <div className=" btn btn-per">%</div>
-    <div className=" btn btn-divide">/</div>
-    <div className=" btn btn-7">7</div>
-    <div className=" btn btn-8">8</div>
-    <div className=" btn btn-9">9</div>
-    <div className=" btn btn-x">*</div>
-    <div className=" btn btn-4">4</div>
-    <div className=" btn btn-5">5</div>
-    <div className=" btn btn-6">6</div>
-    <div className=" btn btn-minus">-</div>
-    <div className=" btn btn-1">1</div>
-    <div className=" btn btn-2">2</div>
-    <div className=" btn btn-3">3</div>
-    <div className=" btn btn-plus">+</div>
-    <div className=" btn btn-0">0</div>
-    <div className=" btn btn-dot">.</div>
-    <div className=" btn btn-equal">=</div>
-    <Button/>
-</div>
+    
+        {buttons.map((btn, i)=>{
+          
+         return <Button 
+         btnClass={btn.buttonClass} 
+         label = {btn.label} 
+         key={i}
+         handelOnClick={handelOnClick} 
+         />
+        })}
+       </div>
 
-</div>
+      </div>
 
-   </div>
+    </div>
    
    </>
   );
