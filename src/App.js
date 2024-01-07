@@ -3,6 +3,8 @@ import { useState } from 'react';
 import './App.css';
 import { Button } from './component/Button';
 
+const operators = ['+', '-', '*', '/', '%']
+
 const buttons = [
 
   {buttonClass: 'btn-ac', label: 'AC'},
@@ -25,18 +27,81 @@ const buttons = [
   {buttonClass: 'btn-dot', label: '.'},
   {buttonClass: 'btn-equal', label: '='},
 ]
-let result = ''
+
 
 function App() {
 
  const [dispalyValue, setDispalyValue] = useState('0.00')
 
+ const doNotUpdate = dispalyValue === '0.00';
 
  const handelOnClick = (label) =>{
 
-  result += label
-    setDispalyValue(result)
+if(label === 'AC'){
+  let val = '0.00'
+  return setDispalyValue(val)
+}
+
+
+
+// logic of C
+
+
+if(label === 'C'){
+
+ const clearedValue = dispalyValue.slice(0,-1)
+ return setDispalyValue(doNotUpdate ? '0.00' : clearedValue ? clearedValue : '0.00')
+}
+
+// logic for operator 
+
+if(operators.includes(label)){
+
+
+  const lastValue = dispalyValue[dispalyValue.length -1]
+  
+
+  if(operators.includes(lastValue)){
+
+    const newVale = dispalyValue.slice(0,-1).concat(label)
+    return setDispalyValue(newVale)
   }
+
+
+  // return setDispalyValue(dispalyValue.concat(label))
+
+
+ 
+}
+
+
+if(label === '.'){
+  
+  const lastValue = dispalyValue[dispalyValue.length - 1]
+  let dotClicked = dispalyValue.includes('.')
+
+  if(dotClicked){
+    return;
+  } else if(operators.includes(lastValue)){
+    
+  }
+
+ 
+
+ 
+}
+
+// logic for equal
+
+if(label === '='){
+
+  return setDispalyValue(eval(dispalyValue))
+}
+
+
+ setDispalyValue(doNotUpdate ? label : dispalyValue.concat(label))
+
+ }
 
 
 
