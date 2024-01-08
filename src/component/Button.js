@@ -3,7 +3,15 @@ export const Button = (props) =>{
 
   
 
-    const {btnClass, label, handelOnClick} = props
+    const {btnClass, label} = props
+
+
+    const handelOnClick = (val) =>{
+
+        console.log(val);
+
+
+    }
  
 
     

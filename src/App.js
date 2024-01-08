@@ -1,9 +1,10 @@
 
-import { useState } from 'react';
+
 import './App.css';
 import { Button } from './component/Button';
+import { Dispaly } from './component/Dispaly';
 
-const operators = ['+', '-', '*', '/', '%']
+
 
 const buttons = [
 
@@ -31,77 +32,7 @@ const buttons = [
 
 function App() {
 
- const [dispalyValue, setDispalyValue] = useState('0.00')
 
- const doNotUpdate = dispalyValue === '0.00';
-
- const handelOnClick = (label) =>{
-
-if(label === 'AC'){
-  let val = '0.00'
-  return setDispalyValue(val)
-}
-
-
-
-// logic of C
-
-
-if(label === 'C'){
-
- const clearedValue = dispalyValue.slice(0,-1)
- return setDispalyValue(doNotUpdate ? '0.00' : clearedValue ? clearedValue : '0.00')
-}
-
-// logic for operator 
-
-if(operators.includes(label)){
-
-
-  const lastValue = dispalyValue[dispalyValue.length -1]
-  
-
-  if(operators.includes(lastValue)){
-
-    const newVale = dispalyValue.slice(0,-1).concat(label)
-    return setDispalyValue(newVale)
-  }
-
-
-  // return setDispalyValue(dispalyValue.concat(label))
-
-
- 
-}
-
-
-if(label === '.'){
-  
-  const lastValue = dispalyValue[dispalyValue.length - 1]
-  let dotClicked = dispalyValue.includes('.')
-
-  if(dotClicked){
-    return;
-  } else if(operators.includes(lastValue)){
-    
-  }
-
- 
-
- 
-}
-
-// logic for equal
-
-if(label === '='){
-
-  return setDispalyValue(eval(dispalyValue))
-}
-
-
- setDispalyValue(doNotUpdate ? label : dispalyValue.concat(label))
-
- }
 
 
 
@@ -113,7 +44,7 @@ if(label === '='){
      <div className="wrapper">
 
         <div className="Calculator">
-         <div className=" display">{dispalyValue}</div>
+        <Dispaly/>
 
     
         {buttons.map((btn, i)=>{
@@ -122,7 +53,7 @@ if(label === '='){
          btnClass={btn.buttonClass} 
          label = {btn.label} 
          key={i}
-         handelOnClick={handelOnClick} 
+      
          />
         })}
        </div>
