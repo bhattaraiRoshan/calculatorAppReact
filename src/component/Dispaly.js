@@ -1,8 +1,8 @@
 
 
-export const Dispaly = () =>{
+export const Dispaly = ({initialVal}) =>{
 
     return(
-        <div className=" display">0.00</div>
+        <div className=" display">{initialVal}</div>
     )
 }

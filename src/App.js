@@ -1,5 +1,6 @@
 
 
+import { useState } from 'react';
 import './App.css';
 import { Button } from './component/Button';
 import { Dispaly } from './component/Dispaly';
@@ -32,6 +33,8 @@ const buttons = [
 
 function App() {
 
+  const [initialVal, setInitialVal] = useState('0.00')
+
 
 
 
@@ -44,7 +47,7 @@ function App() {
      <div className="wrapper">
 
         <div className="Calculator">
-        <Dispaly/>
+        <Dispaly initialVal= {initialVal}/>
 
     
         {buttons.map((btn, i)=>{
@@ -53,6 +56,8 @@ function App() {
          btnClass={btn.buttonClass} 
          label = {btn.label} 
          key={i}
+         setInitialVal= {setInitialVal}
+         initialVal = {initialVal}
       
          />
         })}
