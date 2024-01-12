@@ -34,7 +34,6 @@ export const Button = (props) =>{
 
         if(operators.includes(val)){
 
-           // come to this logic 
 
             const lastElm = initialVal[initialVal.length - 1]
            
@@ -55,31 +54,45 @@ export const Button = (props) =>{
 
         if(val === '.'){
            
-            // console.log(initialVal);
+          
 
-            const checkedClicked = initialVal.indexOf(val)
-            console.log(checkedClicked);
+            const checkedClicked = initialVal.lastIndexOf(val)
+            
+            
             if(checkedClicked !== -1){
-                const slicedStr = initialVal.slice(checkedClicked);
-                for(const elm of slicedStr){
-                    console.log(slicedStr);
-                   console.log(elm);
-                    // console.log(operators.includes(elm));
-                    // if(operators.includes(elm)){
-                    //     console.log(elm);
-                    // // return setInitialVal(initialVal.concat(val))
-                        
-                    // }  else{
-                    //     return
-                    // }
+                const slicedString = initialVal.slice(checkedClicked)
+
+                
+                
+                for(const elm of slicedString){
+                    
+                    if(operators.includes(elm)){
+                       return setInitialVal(initialVal.concat(val))
+                    }
                 }
-               
+
+                if(slicedString.includes('.')){
+                   return
+                }
+
             }
             
            
            
            
         }
+
+        // handel of answer 
+
+        if(val === "="){
+
+            const ans = String(eval(initialVal))
+            return setInitialVal(ans)
+            
+        }
+
+
+        
 
 
 
